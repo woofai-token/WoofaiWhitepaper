@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WoofAi Whitepaper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon-cyan: #00d4ff;
+      --neon-pink: #ff66cc;
+      --neon-green: #39ff14;
+      --dark-bg: #0d0d0d;
+      --light-bg: #1a1a1a;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--dark-bg);
+      color: var(--white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--light-bg);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-family: "Bungee", cursive;
+      color: var(--neon-green);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-family: "Orbitron", sans-serif;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      color: var(--neon-pink);
+      text-shadow: 0 0 8px var(--neon-pink);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-family: "Orbitron", sans-serif;
+      color: var(--neon-cyan);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-cyan), transparent);
+    }
+
+    h3 {
+      color: var(--neon-green);
+      margin: 1.5rem 0 1rem;
+      font-family: "Orbitron", sans-serif;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .card {
+      background: var(--light-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--neon-pink);
+    }
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .tokenomics-item {
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid var(--neon-cyan);
+      border-radius: 8px;
+      padding: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .tokenomics-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+
+    .tokenomics-item h4 {
+      color: var(--neon-cyan);
+      margin-bottom: 0.5rem;
+      font-family: "Orbitron", sans-serif;
+    }
+
+    .highlight {
+      background: rgba(57, 255, 20, 0.1);
+      border-left: 4px solid var(--neon-green);
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--neon-green);
+      color: var(--dark-bg);
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: "Orbitron", sans-serif;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 15px var(--neon-green);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--neon-cyan);
+      border: 2px solid var(--neon-cyan);
+    }
+
+    .btn-outline:hover {
+      box-shadow: 0 0 15px var(--neon-cyan);
+    }
+
+    footer {
+      background: var(--light-bg);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-links a {
+      color: var(--white);
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--neon-pink);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .tokenomics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="https://crimson-certain-wolf-336.mypinata.cloud/ipfs/bafybeih3iwshjpvlxlsbg6mazrv77qu3inzpmixvznyaihqa2ut674nklu" alt="WoofAi Logo" height="40">
+      WoofAi Whitepaper
+    </h1>
+    <nav>
+      <a href="#abstract">Abstract</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <div class="card">
+        <p>WoofAi is revolutionizing the meme token space by combining decentralized finance with AI-powered community engagement on the Solana blockchain. Unlike traditional meme coins, WoofAi introduces real utility through:</p>
+        <ul>
+          <li>AI-driven community rewards system</li>
+          <li>Cross-platform utility across Web3 ecosystems</li>
+        </ul>
+        <div class="highlight">
+          <p>Our mission is to create the first self-sustaining meme economy where token holders are actively rewarded for participation, creativity, and community growth.</p>
+        </div>
+        <a href="https://woofaipresale.netlify.app/" class="btn">Join Presale</a>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <h2>Tokenomics</h2>
+      <div class="card">
+        <h3>Token Distribution</h3>
+        <div class="tokenomics-grid">
+          <div class="tokenomics-item">
+            <h4>Community(50%)</h4>
+            <p>Distributed through Presale</p>
+          </div>
+          <div class="tokenomics-item">
+            <h4>Liquidity Pool (33%)</h4>
+            <p>Locked Forever</p>
+          </div>
+          <div class="tokenomics-item">
+            <h4>Team + Development (10%)</h4>
+            <p>2-year vesting period with quarterly unlocks</p>
+          </div>
+          <div class="tokenomics-item">
+            <h4>Ecosystem Fund + Marketing  (7%)</h4>
+            <p>For partnerships, exchanges listings, and development grants,Community growth initiatives and awareness campaigns</p>
+          </div>
+          <div class="tokenomics-item">
+            <h4>Airdrop (10%)</h4>
+            <p>Early adopters,Rewards for Twitter/X retweets and hashtag campaigns and Bonus distributions to wallets holding ≥1M WOFAI tokens</p>
+          </div>
+        </div>
+
+        <h3>Economic Model</h3>
+        <ul>
+          <li><strong>Token Name:</strong> WOOFAI</li>
+          <li><strong>Blockchain:</strong> Solana (SPL 2022 token)</li>
+          <li><strong>Total Supply:</strong>
+18,446,744,073.7 WOFAI</li>
+          <li><strong>Decimal Places:</strong> 9</li>
+          <li><strong>Tax Structure:</strong> 0% buy tax, 0% sell tax</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <h2>Roadmap</h2>
+      <div class="card">
+        <div class="roadmap-phase">
+          <h3 style="color: var(--neon-green)">Phase 1: Foundation (Q2 2025)</h3>
+          <ul>
+            <li>✅ Token creation and deployment</li>
+            <li>🟢 Live: Phase 1 presale (ongoing)</li>
+          </ul>
+        </div>
+        
+        <div class="roadmap-phase">
+          <h3 style="color: var(--neon-cyan)">Phase 2: Expansion</h3>
+          <ul>
+            <li>Phase 2 presale</li>
+            <li>DEX listings</li>
+            <li>CEX listings</li>
+          </ul>
+        </div>
+        
+        <div class="roadmap-phase">
+          <h3 style="color: var(--neon-pink)">Phase 3: Ecosystem</h3>
+          <ul>
+            <li>AI companion dApp beta</li>
+            <li>Cross-chain bridge</li>
+            <li>DAO governance launch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">Telegram</a>
+      <a href="#">Discord</a>
+      <a href="#">GitHub</a>
+    </div>
+    
+    <p><small>© 2025 WoofAi. All rights reserved. This is not financial advice.</small></p>
+  </footer>
+</body>
+</html>
